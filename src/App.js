@@ -1,27 +1,17 @@
-import { Button } from '@mui/material';
-import { makeStyles } from '@mui/styles'
-import './App.css';
-import PersonIcon from '@mui/icons-material/Person';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: theme.palette.success.dark,
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-  },
-}));
+import './App.css'
+import SearchAppBar from "./components/AppBar";
+import Home from './Pages/Home';
+import { Routes, Route } from 'react-router-dom'
+import Tour from './components/Tour';
 
 function App() {
-  const classes = useStyles();
   return (
     <div className="App">
-      <Button variant="contained" size='large' startIcon={<PersonIcon />}
-        className={classes.root}
-      >Contained</Button>
+      <SearchAppBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<Tour />} />
+      </Routes>
     </div>
   );
 }
